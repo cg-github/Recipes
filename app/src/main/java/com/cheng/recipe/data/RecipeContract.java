@@ -30,6 +30,37 @@ public class RecipeContract {
         public static final String COLUMN_PIC = "pic";
         public static final String COLUMN_TAG = "tag";
         public static final String COLUMN_COLLECT_STATUS = "status";
+
+        public static long getRecipeIdFromUri(Uri uri){
+            long id = Long.parseLong(uri.getPathSegments().get(1));
+            return id;
+        }
+
+        public static Uri buildUriWithPrimaryKey(long id){
+            return BASE_URI.buildUpon().appendPath(""+id).build();
+        }
+
+        public static final String[] PROJECTION = {
+                COLUMN_RECIPE_ID,
+                COLUMN_NAME,
+                COLUMN_CLASS_ID,
+                COLUMN_PEOPLE_NUM,
+                COLUMN_PREPARE_TIME,
+                COLUMN_COOKING_TIME,
+                COLUMN_PIC,
+                COLUMN_TAG,
+                COLUMN_COLLECT_STATUS
+        };
+
+        public static final int CODE_RECIPE_ID = 0;
+        public static final int CODE_NAME = 1;
+        public static final int CODE_CLASS_ID = 2;
+        public static final int CODE_PEOPLE_NUM = 3;
+        public static final int CODE_PREPARE_TIME = 4;
+        public static final int CODE_COOKING_TIME = 5;
+        public static final int CODE_PIC = 6;
+        public static final int CODE_TAG = 7;
+        public static final int CODE_COLLECT_STATUS = 8;
     }
 
     public static class IngredientEntry implements BaseColumns{
@@ -41,6 +72,30 @@ public class RecipeContract {
         public static final String COLUMN_NAME = "name";
         public static final String COLUMN_TYPE = "type";
         public static final String COLUMN_AMOUNT = "amount";
+
+        public static long getRecipeIdFromUri(Uri uri){
+            long id = Long.parseLong(uri.getPathSegments().get(1));
+            return id;
+        }
+
+        public static Uri buildUriWithPrimaryKey(long id){
+            return BASE_URI.buildUpon().appendPath(""+id).build();
+        }
+
+        public static final String[] PROJECTION = {
+                _ID,
+                COLUMN_RECIPE_ID,
+                COLUMN_NAME,
+                COLUMN_TYPE,
+                COLUMN_AMOUNT
+        };
+
+        public static final int CODE_ID = 0;
+        public static final int CODE_RECIPE_ID = 1;
+        public static final int CODE_NAME = 2;
+        public static final int CODE_TYPE = 3;
+        public static final int CODE_AMOUNT = 4;
+
     }
 
     public static class ProcessEntry implements BaseColumns{
@@ -52,6 +107,28 @@ public class RecipeContract {
         public static final String COLUMN_STEP_ID = "step_id";
         public static final String COLUMN_PCONTENT = "pcontent";
         public static final String COLUMN_PIC = "pic";
+
+        public static long getRecipeIdFromUri(Uri uri){
+            long id = Long.parseLong(uri.getPathSegments().get(1));
+            return id;
+        }
+        public static Uri buildUriWithPrimaryKey(long id){
+            return BASE_URI.buildUpon().appendPath(""+id).build();
+        }
+
+        public static final String[] PROJECTION = {
+                _ID,
+                COLUMN_RECIPE_ID,
+                COLUMN_STEP_ID,
+                COLUMN_PCONTENT,
+                COLUMN_PIC
+        };
+
+        public static final int CODE_ID = 0;
+        public static final int CODE_RECIPE_ID = 1;
+        public static final int CODE_STEP_ID = 2;
+        public static final int CODE_PCONTENT = 3;
+        public static final int CODE_PIC = 4;
     }
 
 }
