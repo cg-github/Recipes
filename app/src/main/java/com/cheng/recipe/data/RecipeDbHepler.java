@@ -20,11 +20,12 @@ public class RecipeDbHepler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         final String SQL_CREATE_RECIPE_TABLE = "CREATE TABLE "+ RecipeContract.RecipeEntry.TABLE_NAME+" ("+
                 RecipeContract.RecipeEntry.COLUMN_RECIPE_ID+" INTEGER PRIMARY KEY, "+
-                RecipeContract.RecipeEntry.COLUMN_CLASS_ID+" INTEGER NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_NAME+" TEXT NOT NULL, "+
+                RecipeContract.RecipeEntry.COLUMN_CLASS_ID+" INTEGER NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_PEOPLE_NUM+" TEXT NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_PREPARE_TIME+" TEXT NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_COOKING_TIME+" TEXT NOT NULL, "+
+                RecipeContract.RecipeEntry.COLUMN_CONTENT+" TEXT NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_PIC+" TEXT NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_TAG+" TEXT NOT NULL, "+
                 RecipeContract.RecipeEntry.COLUMN_COLLECT_STATUS+" INTEGER DEFAULT 0"+
@@ -38,8 +39,8 @@ public class RecipeDbHepler extends SQLiteOpenHelper {
                 ");";
         final String SQL_CREATE_PROCESS_TABLE = "CREATE TABLE "+ RecipeContract.ProcessEntry.TABLE_NAME+" ("+
                 RecipeContract.ProcessEntry._ID+" INTEGER PRIMARY KEY, "+
-                RecipeContract.ProcessEntry.COLUMN_STEP_ID+" INTEGER NOT NULL, "+
                 RecipeContract.ProcessEntry.COLUMN_RECIPE_ID+" INTEGER NOT NULL, "+
+                RecipeContract.ProcessEntry.COLUMN_STEP_ID+" INTEGER NOT NULL, "+
                 RecipeContract.ProcessEntry.COLUMN_PCONTENT+" TEXT NOT NULL, "+
                 RecipeContract.ProcessEntry.COLUMN_PIC+" TEXT NOT NULL"+
                 ");";

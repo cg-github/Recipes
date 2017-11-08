@@ -27,6 +27,7 @@ public class RecipeContract {
         public static final String COLUMN_PEOPLE_NUM = "peoplenum";
         public static final String COLUMN_PREPARE_TIME = "preparetime";
         public static final String COLUMN_COOKING_TIME = "cookingtime";
+        public static final String COLUMN_CONTENT = "content";
         public static final String COLUMN_PIC = "pic";
         public static final String COLUMN_TAG = "tag";
         public static final String COLUMN_COLLECT_STATUS = "status";
@@ -47,6 +48,7 @@ public class RecipeContract {
                 COLUMN_PEOPLE_NUM,
                 COLUMN_PREPARE_TIME,
                 COLUMN_COOKING_TIME,
+                COLUMN_CONTENT,
                 COLUMN_PIC,
                 COLUMN_TAG,
                 COLUMN_COLLECT_STATUS
@@ -58,9 +60,10 @@ public class RecipeContract {
         public static final int CODE_PEOPLE_NUM = 3;
         public static final int CODE_PREPARE_TIME = 4;
         public static final int CODE_COOKING_TIME = 5;
-        public static final int CODE_PIC = 6;
-        public static final int CODE_TAG = 7;
-        public static final int CODE_COLLECT_STATUS = 8;
+        public static final int CODE_CONTENT = 6;
+        public static final int CODE_PIC = 7;
+        public static final int CODE_TAG = 8;
+        public static final int CODE_COLLECT_STATUS = 9;
     }
 
     public static class IngredientEntry implements BaseColumns{
