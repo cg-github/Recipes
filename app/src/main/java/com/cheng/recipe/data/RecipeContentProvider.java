@@ -111,7 +111,7 @@ public class RecipeContentProvider extends ContentProvider {
             default:
                 break;
         }
-        db.close();
+        //db.close();
         return cursor;
     }
 
@@ -132,7 +132,7 @@ public class RecipeContentProvider extends ContentProvider {
         switch (mUriMatcher.match(uri)){
             case CODE_RECIPE:
                 id = values.getAsLong(RecipeContract.RecipeEntry.COLUMN_RECIPE_ID);
-                tmpUri = RecipeContract.RecipeEntry.buildUriWithPrimaryKey(id);
+                tmpUri = RecipeContract.RecipeEntry.buildUriWithRecipeId(id);
                 cursor = query(tmpUri, RecipeContract.RecipeEntry.PROJECTION,null,null,null);
                 if (cursor!=null && cursor.moveToFirst()
                         && (id==cursor.getLong(RecipeContract.RecipeEntry.CODE_RECIPE_ID))){
@@ -145,21 +145,21 @@ public class RecipeContentProvider extends ContentProvider {
                             values
                     );
                 }
-                resultUri = RecipeContract.RecipeEntry.buildUriWithPrimaryKey(id);
+                resultUri = RecipeContract.RecipeEntry.buildUriWithRecipeId(id);
                 break;
             case CODE_INGREDIENT:
                 id = db.insert(RecipeContract.IngredientEntry.TABLE_NAME,
                         null,
                         values
                 );
-                resultUri = RecipeContract.IngredientEntry.buildUriWithPrimaryKey(id);
+                resultUri = RecipeContract.IngredientEntry.buildUriWithRecipeId(id);
                 break;
             case CODE_PROCESS:
                 id = db.insert(RecipeContract.ProcessEntry.TABLE_NAME,
                         null,
                         values
                 );
-                resultUri = RecipeContract.ProcessEntry.buildUriWithPrimaryKey(id);
+                resultUri = RecipeContract.ProcessEntry.buildUriWithRecipeId(id);
                 break;
             default:
                 break;

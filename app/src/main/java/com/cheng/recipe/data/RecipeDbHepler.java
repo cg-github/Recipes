@@ -35,14 +35,18 @@ public class RecipeDbHepler extends SQLiteOpenHelper {
                 RecipeContract.IngredientEntry.COLUMN_RECIPE_ID+" INTEGER NOT NULL, "+
                 RecipeContract.IngredientEntry.COLUMN_NAME+" TEXT NOT NULL, "+
                 RecipeContract.IngredientEntry.COLUMN_TYPE+" INTEGER NOT NULL, "+
-                RecipeContract.IngredientEntry.COLUMN_AMOUNT+" TEXT NOT NULL"+
+                RecipeContract.IngredientEntry.COLUMN_AMOUNT+" TEXT NOT NULL,"+
+                " UNIQUE("+RecipeContract.IngredientEntry.COLUMN_RECIPE_ID +","+
+                RecipeContract.IngredientEntry.COLUMN_NAME+") ON CONFLICT REPLACE"+
                 ");";
         final String SQL_CREATE_PROCESS_TABLE = "CREATE TABLE "+ RecipeContract.ProcessEntry.TABLE_NAME+" ("+
                 RecipeContract.ProcessEntry._ID+" INTEGER PRIMARY KEY, "+
                 RecipeContract.ProcessEntry.COLUMN_RECIPE_ID+" INTEGER NOT NULL, "+
                 RecipeContract.ProcessEntry.COLUMN_STEP_ID+" INTEGER NOT NULL, "+
                 RecipeContract.ProcessEntry.COLUMN_PCONTENT+" TEXT NOT NULL, "+
-                RecipeContract.ProcessEntry.COLUMN_PIC+" TEXT NOT NULL"+
+                RecipeContract.ProcessEntry.COLUMN_PIC+" TEXT NOT NULL,"+
+                " UNIQUE("+RecipeContract.ProcessEntry.COLUMN_RECIPE_ID +","+
+                RecipeContract.ProcessEntry.COLUMN_PIC+") ON CONFLICT REPLACE"+
                 ");";
 
         db.execSQL(SQL_CREATE_RECIPE_TABLE);

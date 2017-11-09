@@ -37,7 +37,7 @@ public class RecipeContract {
             return id;
         }
 
-        public static Uri buildUriWithPrimaryKey(long id){
+        public static Uri buildUriWithRecipeId(long id){
             return BASE_URI.buildUpon().appendPath(""+id).build();
         }
 
@@ -64,6 +64,8 @@ public class RecipeContract {
         public static final int CODE_PIC = 7;
         public static final int CODE_TAG = 8;
         public static final int CODE_COLLECT_STATUS = 9;
+
+        public static final String SORT_BY_RECIPE_ID = COLUMN_RECIPE_ID+" ASC";
     }
 
     public static class IngredientEntry implements BaseColumns{
@@ -81,7 +83,7 @@ public class RecipeContract {
             return id;
         }
 
-        public static Uri buildUriWithPrimaryKey(long id){
+        public static Uri buildUriWithRecipeId(long id){
             return BASE_URI.buildUpon().appendPath(""+id).build();
         }
 
@@ -99,6 +101,8 @@ public class RecipeContract {
         public static final int CODE_TYPE = 3;
         public static final int CODE_AMOUNT = 4;
 
+        public static final String SORT_BY_ID = _ID+" ASC";
+
     }
 
     public static class ProcessEntry implements BaseColumns{
@@ -115,7 +119,7 @@ public class RecipeContract {
             long id = Long.parseLong(uri.getPathSegments().get(1));
             return id;
         }
-        public static Uri buildUriWithPrimaryKey(long id){
+        public static Uri buildUriWithRecipeId(long id){
             return BASE_URI.buildUpon().appendPath(""+id).build();
         }
 
@@ -132,6 +136,8 @@ public class RecipeContract {
         public static final int CODE_STEP_ID = 2;
         public static final int CODE_PCONTENT = 3;
         public static final int CODE_PIC = 4;
+
+        public static final String SORT_BY_STEP_ID = COLUMN_STEP_ID+" ASC";
     }
 
 }
